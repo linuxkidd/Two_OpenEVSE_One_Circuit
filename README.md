@@ -17,7 +17,8 @@ With this Shaper capability, we can also set up two OpenEVSE devices to share a 
 
 **The Setup:**
 1. Install the two OpenEVSE devices on the same circuit and circuit breaker
-2. Install the ShellyEM (or similar), using a CT clamp large enough to fit both L1 and L2 wires through.
+2. Install the ShellyEM (or similar), using a CT clamp large enough to fit both L1 and L2 wires through, and rated for double the current rating of the breaker.
+    * For a ShellyEM on a 50 amp breaker, use the 120 amp CT clamp.
 	* This is to allow for summing of the current, since the ShellyEM can only receive power from one leg.
 	* To accomplish this, pass both L1 and L2 through the CT clamp, but make sure they pass through in opposite directions.
 	* e.g. In the photo below, the RED (L1) Breaker side enters the top of the CT, the BLACK (L2) Breaker side should enter the bottom of the CT.
