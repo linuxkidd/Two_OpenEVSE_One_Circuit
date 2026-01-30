@@ -50,4 +50,9 @@ With this Shaper capability, we can also set up two OpenEVSE devices to share a 
 	      Example from above: `shellies/shellyem-B164B8/emeter/0/power`
 
 **Summary**
+
 That's it!  Now, when an EV is connected to the *Primary* EVSE, it will consume all current available ( minus 6 amps ) and the EV connected to the *Secondar* EVSE will consume 6 amps.  As the *Primary* EVSE connected vehicle slows its charging, the *Secondary* EVSE will begin to ramp up its charging speed to consume the left over current.
+
+**NOTE**
+
+An additional benefit of using the 'Shaper' feature is that if the MQTT topic updates stop flowing, or if the MQTT broker is disconnected, the *Secondary* EVSE will disable charging of the connected EV to maintain maximum safety.
