@@ -3,7 +3,7 @@
 
 Current firmware for the OpenEVSE devices has a functionality called 'Shaper'.  This is intended to permit load sharing between the OpenEVSE and other loads without tripping the breaker -- commonly used in homes with a 100 amp panel (or similar) -- permitting the EVSE connected vehicle to charge with the remaining power not used by the loads in the rest of the home.
 
-**Requirements:**
+**Requirements**
 - A CT clamp providing a total home power consumption value via MQTT.
 	- The [Shelly EM](https://us.shelly.com/products/shelly-em-120a-clamp?variant=49666055897429) works great for this!
     - However, any CT set capable of publishing the total power used for a two phase circuit can be used.
@@ -15,7 +15,7 @@ With this Shaper capability, we can also set up two OpenEVSE devices to share a 
 - One OpenEVSE will be primary and able to pull up to the Max current, minus 6 amps. 
 - The other OpenEVSE will be the secondary - always able to charge at the minimum 6 amps, but then able to consume whatever the primary OpenEVSE is not.
 
-**The Setup:**
+**The Setup**
 1. Install the two OpenEVSE devices on the same circuit and circuit breaker
 2. Install the ShellyEM (or similar), using a CT clamp large enough to fit both L1 and L2 wires through, and rated for double the current rating of the breaker.
     * For a ShellyEM on a 50 amp breaker, use the 120 amp CT clamp.
@@ -49,3 +49,5 @@ With this Shaper capability, we can also set up two OpenEVSE devices to share a 
 		* Set the `Live power load MQTT Topic (w)` to the ShellyEM's Power MQTT topic.
 	      Example from above: `shellies/shellyem-B164B8/emeter/0/power`
 
+**Summary**
+That's it!  Now, when an EV is connected to the *Primary* EVSE, it will consume all current available ( minus 6 amps ) and the EV connected to the *Secondar* EVSE will consume 6 amps.  As the *Primary* EVSE connected vehicle slows its charging, the *Secondary* EVSE will begin to ramp up its charging speed to consume the left over current.
