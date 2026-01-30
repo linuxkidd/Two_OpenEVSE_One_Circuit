@@ -21,7 +21,7 @@ With this Shaper capability, we can also set up two OpenEVSE devices to share a 
 	* This is to allow for summing of the current, since the ShellyEM can only receive power from one leg.
 	* To accomplish this, pass both L1 and L2 through the CT clamp, but make sure they pass through in opposite directions.
 	* e.g. In the photo below, the RED (L1) Breaker side enters the top of the CT, the BLACK (L2) Breaker side should enter the bottom of the CT.
-	   ![[Two Phase CT Monitoring.png]]
+	   ![Image showing a single CT clamp around two lines for measuring split phase current flow.](Two Phase CT Monitoring.jpg)
 3. In the ShellyEM, Enable MQTT and configure the MQTT Broker under:
    *Internet & Security* -> *Advanced - Developer Settings*
 4. Using MQTT Explorer, or other means, connect to the MQTT Broker and observe the MQTT topic to which the power is posted for the ShellyEM Line where the CT coil is connected.
